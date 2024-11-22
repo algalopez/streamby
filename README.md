@@ -23,3 +23,6 @@ Run sonarqube
 ````bash
 .\gradlew sonar -D sonar.login=<token>
 ````
+Open swagger
+
+````http://localhost:8080/q/swagger-ui````
