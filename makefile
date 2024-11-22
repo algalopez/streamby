@@ -1,0 +1,3 @@
+
+
+./gradlew.bat clean build

@@ -1,0 +1,30 @@
+services:
+  sonarqube:
+    image: sonarqube:9.9.7-community
+    container_name: streamby-sonarqube
+    ports:
+      - "34501:9000"
+  db:
+    image: mariadb:10.6.17
+    container_name: streamby-db
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_DATABASE: streamby
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    volumes:
+      - data:/var/lib/mysql
+    ports:
+      - "34502:3306"
+  prometheus:
+    image: prom/prometheus:v2.51.2
+    container_name: streamby-prometheus
+    ports:
+      - "34503:9090"
+  grafana:
+    image: grafana/grafana:10.4.2-ubuntu
+    container_name: streamby-grafana
+    ports:
+      - "34504:3000"
+volumes:
+  data:

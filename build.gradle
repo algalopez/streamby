@@ -1,0 +1,65 @@
+plugins {
+    id 'java' apply true
+    id 'io.quarkus' apply true
+    id 'org.sonarqube' version "5.0.0.4638" apply true
+    id 'jacoco'
+}
+
+group 'org.algalopez'
+version '1.0.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+test {
+    useJUnitPlatform()
+    systemProperty "java.util.logging.manager", "org.jboss.logmanager.LogManager"
+    finalizedBy jacocoTestReport
+}
+
+jacocoTestReport {
+    reports {
+        xml.required = true
+        csv.required = false
+    }
+}
+
+dependencies {
+    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+
+    implementation 'io.quarkus:quarkus-rest-jackson'
+    implementation 'io.quarkus:quarkus-jdbc-mariadb'
+    implementation 'io.quarkus:quarkus-arc'
+
+    compileOnly 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.projectlombok:lombok:1.18.36'
+
+    testImplementation 'io.quarkus:quarkus-junit5'
+    testImplementation 'io.rest-assured:rest-assured:5.5.0'
+    testImplementation 'org.assertj:assertj-core:3.26.3'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.36'
+}
+
+sonar {
+    properties {
+        property 'sonar.projectKey', 'org.algalopez.streamby'
+        property 'sonar.projectName', 'StreamBy'
+        property 'sonar.projectVersion', version
+        property 'sonar.language', 'java'
+        property 'sonar.sources', 'src/main/java'
+        property 'sonar.tests', 'src/test/java'
+        property 'sonar.sourceEncoding', 'UTF-8'
+        property 'sonar.exclusions', '**/Application.java'
+        property 'sonar.coverage.exclusions', '**/Application.java'
+        property 'sonar.host.url', 'http://localhost:34501'
+        property 'sonar.login', 'sqa_f8e7280cbe31fcb375718d83f23872f1e33abee2'
+    }
+}
