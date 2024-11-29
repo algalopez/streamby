@@ -1,4 +1,4 @@
-package com.algalopez.streamby.event_app.producer.application.delete_event_by_id;
+package com.algalopez.streamby.backoffice_app.event.application.delete_event_by_id;
 
 import com.algalopez.streamby.shared.application.CommandActor;
 import jakarta.enterprise.context.ApplicationScoped;

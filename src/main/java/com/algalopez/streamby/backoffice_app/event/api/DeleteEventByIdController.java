@@ -1,6 +1,6 @@
-package com.algalopez.streamby.event_app.producer.api;
+package com.algalopez.streamby.backoffice_app.event.api;
 
-import com.algalopez.streamby.event_app.producer.application.delete_event_by_id.DeleteEventByIdActor;
+import com.algalopez.streamby.backoffice_app.event.application.delete_event_by_id.DeleteEventByIdActor;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.algalopez.streamby.event_app.producer.application.get_event_by_id;
+package com.algalopez.streamby.backoffice_app.event.application.get_event_by_id;
 
 import com.algalopez.streamby.shared.application.QueryActor;
 import jakarta.enterprise.context.ApplicationScoped;

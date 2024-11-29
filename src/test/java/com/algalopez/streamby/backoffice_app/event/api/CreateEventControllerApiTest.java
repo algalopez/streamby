@@ -1,12 +1,13 @@
-package com.algalopez.streamby.event_app.producer.api;
+package com.algalopez.streamby.backoffice_app.event.api;
 
 import static io.restassured.RestAssured.given;
 
-import com.algalopez.streamby.event_app.producer.application.create_event.CreateEventActor;
-import com.algalopez.streamby.event_app.producer.application.create_event.CreateEventRequest;
+import com.algalopez.streamby.backoffice_app.event.application.create_event.CreateEventActor;
+import com.algalopez.streamby.backoffice_app.event.application.create_event.CreateEventRequest;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;
+import java.util.List;
 import org.jboss.resteasy.reactive.RestResponse;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -24,11 +25,11 @@ class CreateEventControllerApiTest {
     {
       "id": "id",
       "name": "name",
-      "date": "date",
-      "type": "type",
+      "startDate": "startDate",
       "category": "category",
-      "interactionType": "interactionType",
-      "interactionSubType": "interactionSubType"
+      "subCategory": "subCategory",
+      "inputTypes": ["inputType"],
+      "outputTypes": ["outputType"]
     }
     """;
 
@@ -45,11 +46,11 @@ class CreateEventControllerApiTest {
             CreateEventRequest.builder()
                 .id("id")
                 .name("name")
-                .date("date")
-                .type("type")
+                .startDate("startDate")
                 .category("category")
-                .interactionType("interactionType")
-                .interactionSubType("interactionSubType")
+                .subCategory("subCategory")
+                .inputTypes(List.of("inputType"))
+                .outputTypes(List.of("outputType"))
                 .build());
   }
 }

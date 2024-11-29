@@ -1,13 +1,15 @@
-package com.algalopez.streamby.event_app.producer.api;
+package com.algalopez.streamby.backoffice_app.event.api;
 
 import static io.restassured.RestAssured.given;
 
-import com.algalopez.streamby.event_app.producer.application.get_event_by_id.GetEventByIdActor;
-import com.algalopez.streamby.event_app.producer.application.get_event_by_id.GetEventByIdResponse;
+import com.algalopez.streamby.backoffice_app.event.application.get_event_by_id.GetEventByIdActor;
+import com.algalopez.streamby.backoffice_app.event.application.get_event_by_id.GetEventByIdResponse;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
+import java.util.List;
+import org.hamcrest.Matchers;
 import org.hamcrest.core.Is;
 import org.jboss.resteasy.reactive.RestResponse;
 import org.junit.jupiter.api.Test;
@@ -24,11 +26,11 @@ class GetEventByIdControllerApiTest {
         GetEventByIdResponse.builder()
             .id("id")
             .name("name")
-            .date("date")
-            .type("type")
+            .startDate("startDate")
             .category("category")
-            .interactionType("interactionType")
-            .interactionSubType("interactionSubType")
+            .subCategory("subCategory")
+            .inputTypes(List.of("inputType"))
+            .outputTypes(List.of("outputType"))
             .build();
     Mockito.when(getEventByIdActor.query(Mockito.anyString())).thenReturn(response);
 
@@ -43,10 +45,10 @@ class GetEventByIdControllerApiTest {
         .statusCode(RestResponse.StatusCode.OK)
         .body("id", Is.is("id"))
         .body("name", Is.is("name"))
-        .body("date", Is.is("date"))
-        .body("type", Is.is("type"))
+        .body("startDate", Is.is("startDate"))
         .body("category", Is.is("category"))
-        .body("interactionType", Is.is("interactionType"))
-        .body("interactionSubType", Is.is("interactionSubType"));
+        .body("subCategory", Is.is("subCategory"))
+        .body("inputTypes", Matchers.containsInAnyOrder("inputType"))
+        .body("outputTypes", Matchers.containsInAnyOrder("outputType"));
   }
 }

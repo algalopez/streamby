@@ -1,8 +1,8 @@
-package com.algalopez.streamby.event_app.producer.api;
+package com.algalopez.streamby.backoffice_app.event.api;
 
 import static io.restassured.RestAssured.given;
 
-import com.algalopez.streamby.event_app.producer.application.delete_event_by_id.DeleteEventByIdActor;
+import com.algalopez.streamby.backoffice_app.event.application.delete_event_by_id.DeleteEventByIdActor;
 import io.quarkus.test.InjectMock;
 import io.quarkus.test.junit.QuarkusTest;
 import io.restassured.http.ContentType;

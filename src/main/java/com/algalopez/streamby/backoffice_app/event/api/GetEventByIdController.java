@@ -1,7 +1,7 @@
-package com.algalopez.streamby.event_app.producer.api;
+package com.algalopez.streamby.backoffice_app.event.api;
 
-import com.algalopez.streamby.event_app.producer.application.get_event_by_id.GetEventByIdActor;
-import com.algalopez.streamby.event_app.producer.application.get_event_by_id.GetEventByIdResponse;
+import com.algalopez.streamby.backoffice_app.event.application.get_event_by_id.GetEventByIdActor;
+import com.algalopez.streamby.backoffice_app.event.application.get_event_by_id.GetEventByIdResponse;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import lombok.RequiredArgsConstructor;

@@ -1,4 +1,4 @@
-package com.algalopez.streamby.event_app.producer.application.create_event;
+package com.algalopez.streamby.backoffice_app.event.application.create_event;
 
 import com.algalopez.streamby.shared.application.CommandActor;
 import jakarta.enterprise.context.ApplicationScoped;
