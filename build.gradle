@@ -64,6 +64,6 @@ sonar {
         property 'sonar.exclusions', '**/Application.java'
         property 'sonar.coverage.exclusions', '**/Application.java'
         property 'sonar.host.url', 'http://localhost:34501'
-        property 'sonar.login', 'sqa_a28b5966ccbf50c6d9ac7e493a9c5e3b524c1a92'
+        property 'sonar.token', 'sqa_a28b5966ccbf50c6d9ac7e493a9c5e3b524c1a92'
     }
 }
