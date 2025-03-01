@@ -44,9 +44,10 @@ dependencies {
 
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-junit5-mockito'
-    testImplementation 'io.rest-assured:rest-assured:5.5.0'
-    testImplementation 'org.assertj:assertj-core:3.26.3'
-    testImplementation 'com.tngtech.archunit:archunit-junit5:1.3.0'
+    testImplementation 'io.rest-assured:rest-assured:5.5.1'
+    testImplementation 'org.assertj:assertj-core:3.27.3'
+    testImplementation 'net.datafaker:datafaker:2.4.2'
+    testImplementation 'com.tngtech.archunit:archunit-junit5:1.4.0'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.36'
 }
@@ -63,6 +64,6 @@ sonar {
         property 'sonar.exclusions', '**/Application.java'
         property 'sonar.coverage.exclusions', '**/Application.java'
         property 'sonar.host.url', 'http://localhost:34501'
-        property 'sonar.login', 'sqa_f8e7280cbe31fcb375718d83f23872f1e33abee2'
+        property 'sonar.login', 'sqa_a28b5966ccbf50c6d9ac7e493a9c5e3b524c1a92'
     }
 }
