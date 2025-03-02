@@ -39,7 +39,6 @@ class GetAllCategoriesControllerApiTest {
   }
 
   private GetAllCategoriesResponse buildResponse() {
-
     return GetAllCategoriesResponse.builder()
         .categories(
             List.of(

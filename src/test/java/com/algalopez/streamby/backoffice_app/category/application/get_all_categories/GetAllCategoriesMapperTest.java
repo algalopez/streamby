@@ -2,34 +2,24 @@ package com.algalopez.streamby.backoffice_app.category.application.get_all_categ
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import com.algalopez.streamby.backoffice_app.category.domain.model.CategoryView;
 import com.algalopez.streamby.backoffice_app.category.domain.model.CategoryViewMother;
 import com.algalopez.streamby.backoffice_app.category.domain.model.SubcategoryViewMother;
-import com.algalopez.streamby.backoffice_app.category.domain.port.CategoryViewPort;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import org.mockito.Mockito;
 
-class GetAllCategoriesActorTest {
+class GetAllCategoriesMapperTest {
 
-  private CategoryViewPort categoryViewPort;
-  private GetAllCategoriesActor actor;
-
-  @BeforeEach
-  void setUp() {
-    categoryViewPort = Mockito.mock(CategoryViewPort.class);
-    final GetAllCategoriesMapper mapper = Mappers.getMapper(GetAllCategoriesMapper.class);
-    actor = new GetAllCategoriesActor(categoryViewPort, mapper);
-  }
+  private final GetAllCategoriesMapper mapper = Mappers.getMapper(GetAllCategoriesMapper.class);
 
   @Test
-  void query() {
+  void mapToResponse() {
     var subcategory = new SubcategoryViewMother().build();
     var category = new CategoryViewMother().setSubcategories(List.of(subcategory)).build();
-    Mockito.when(categoryViewPort.findAllCategories()).thenReturn(List.of(category));
+    List<CategoryView> categories = List.of(category);
 
-    GetAllCategoriesResponse actualResponse = actor.query(null);
+    GetAllCategoriesResponse actualResponse = mapper.mapToResponse(categories);
 
     assertThat(actualResponse)
         .isEqualTo(

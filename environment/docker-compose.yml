@@ -1,6 +1,6 @@
 services:
   sonarqube:
-    image: sonarqube:25.2.0.102705-community
+    image: sonarqube:9.9.8-community
     container_name: streamby-sonarqube
     ports:
       - "34501:9000"

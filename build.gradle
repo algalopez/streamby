@@ -37,10 +37,12 @@ dependencies {
     implementation 'io.quarkus:quarkus-arc'
     implementation 'io.quarkus:quarkus-rest-jackson'
     implementation 'io.quarkus:quarkus-jdbc-mariadb'
-    implementation("io.quarkus:quarkus-smallrye-openapi")
+    implementation 'io.quarkus:quarkus-smallrye-openapi'
+    implementation 'org.mapstruct:mapstruct:1.6.3'
 
     compileOnly 'org.projectlombok:lombok:1.18.36'
     annotationProcessor 'org.projectlombok:lombok:1.18.36'
+    annotationProcessor 'org.mapstruct:mapstruct-processor:1.6.3'
 
     testImplementation 'io.quarkus:quarkus-junit5'
     testImplementation 'io.quarkus:quarkus-junit5-mockito'
@@ -50,6 +52,7 @@ dependencies {
     testImplementation 'com.tngtech.archunit:archunit-junit5:1.4.0'
 
     testCompileOnly 'org.projectlombok:lombok:1.18.36'
+    testAnnotationProcessor 'org.projectlombok:lombok:1.18.36'
 }
 
 sonar {
@@ -64,6 +67,6 @@ sonar {
         property 'sonar.exclusions', '**/Application.java'
         property 'sonar.coverage.exclusions', '**/Application.java'
         property 'sonar.host.url', 'http://localhost:34501'
-        property 'sonar.token', 'sqa_a28b5966ccbf50c6d9ac7e493a9c5e3b524c1a92'
+        property 'sonar.login', 'sqa_58b8c44bd539affc03cb79ff6b2f0cf6ab01a336'
     }
 }

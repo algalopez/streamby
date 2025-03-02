@@ -21,7 +21,7 @@ public class GetCategoryByIdController {
 
   private final GetCategoryByIdActor actor;
 
-  @Operation(summary = "Get category by id")
+  @Operation(summary = "Get category by subcategoryId")
   @APIResponse(
       responseCode = "200",
       content = @Content(schema = @Schema(implementation = GetCategoryByIdActor.class)))

@@ -6,19 +6,17 @@ import net.datafaker.Faker;
 
 @Accessors(chain = true)
 @Setter
-public class SubcategoryMother {
+public class SubcategoryViewMother {
   private Long id;
-  private Long categoryId;
   private String name;
 
-  public SubcategoryMother() {
+  public SubcategoryViewMother() {
     var faker = new Faker();
     this.id = faker.number().numberBetween(1L, 1000L);
-    this.categoryId = faker.number().numberBetween(1L, 1000L);
     this.name = faker.text().text(10, 50);
   }
 
-  public Subcategory build() {
-    return Subcategory.builder().id(id).categoryId(categoryId).name(name).build();
+  public SubcategoryView build() {
+    return SubcategoryView.builder().id(id).name(name).build();
   }
 }

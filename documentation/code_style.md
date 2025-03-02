@@ -2,12 +2,12 @@
 
 Naming repository methods for Repository<Class>
 
-    getAllClasses -> List<Class>
-    getClassById -> Class
-    getOptionalClassById -> Optional<Class>
-    createClass -> void
+    findAllClasses -> List<Class>
+    findClassById -> Class
+    findOptionalClassById -> Optional<Class>
+    createClass -> Class
     updateClassById -> void
-    deleteClassById -> void
+    removeClassById -> void
 
 Naming tests
 

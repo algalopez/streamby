@@ -4,33 +4,20 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import com.algalopez.streamby.backoffice_app.category.domain.model.CategoryViewMother;
 import com.algalopez.streamby.backoffice_app.category.domain.model.SubcategoryViewMother;
-import com.algalopez.streamby.backoffice_app.category.domain.port.CategoryViewPort;
 import java.util.List;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
-import org.mockito.Mockito;
 
-class GetCategoryByIdActorTest {
+class GetCategoryByIdMapperTest {
 
-  private CategoryViewPort categoryViewPort;
-  private GetCategoryByIdActor actor;
-
-  @BeforeEach
-  void setUp() {
-    categoryViewPort = Mockito.mock(CategoryViewPort.class);
-    final GetCategoryByIdMapper mapper = Mappers.getMapper(GetCategoryByIdMapper.class);
-    actor = new GetCategoryByIdActor(categoryViewPort, mapper);
-  }
+  private final GetCategoryByIdMapper mapper = Mappers.getMapper(GetCategoryByIdMapper.class);
 
   @Test
-  void query() {
+  void mapToResponse() {
     var subcategory = new SubcategoryViewMother().build();
     var category = new CategoryViewMother().setSubcategories(List.of(subcategory)).build();
-    var request = GetCategoryByIdRequest.builder().categoryId(1L).build();
-    Mockito.when(categoryViewPort.findCategoryById(Mockito.anyLong())).thenReturn(category);
 
-    GetCategoryByIdResponse actualResponse = actor.query(request);
+    GetCategoryByIdResponse actualResponse = mapper.mapToResponse(category);
 
     assertThat(actualResponse)
         .isEqualTo(
